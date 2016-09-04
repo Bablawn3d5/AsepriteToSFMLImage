@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.1)
 
 project(AsepriteToSFMLImage)
 
-option(ZLIB_TEST  "Compile with zlib examples/tests" Off)
+option(ZLIB_TESTS  "Compile with zlib examples/tests" Off)
 set(SKIP_INSTALL_ALL 1)
 
 
