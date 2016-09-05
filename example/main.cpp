@@ -9,14 +9,20 @@
 
 int main(int argc, char* const argv[]) {
   aseprite::Sprite s1 = aseprite::load_sprite_from_file("Sprite-0001.ase");
-  sf::Image image = convert(s1);
+  assert(s1.frames.size() == 9);
+  sf::Image image = aseprite::convertToSFML(s1);
   sf::Texture texture;
   texture.loadFromImage(image);
   sf::Sprite sprite(texture);
   sprite.scale(4, 4);
 
   sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
-  while ( true ) {
+  while ( window.isOpen() ) {
+    sf::Event event;
+    while ( window.pollEvent(event) ) {
+      if ( event.type == sf::Event::Closed )
+        window.close();
+    }
     window.clear(sf::Color(50,120,200));
     window.draw(sprite);
     window.display();
