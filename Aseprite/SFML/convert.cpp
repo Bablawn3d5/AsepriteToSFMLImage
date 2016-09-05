@@ -56,6 +56,7 @@ sf::Image convertToSFML(aseprite::Sprite s) {
   assert(s.frames.size() * s.w * s.h <= pixels.size());
 
   auto offsets = calcFrameOffsets(s);
+  assert(offsets.size() == s.frames.size());
   size_t frame_index = 0;
   for ( auto& f : s.frames ) {
     // Assuming all frames are of the same w,h. So we use sprite's w/h.
