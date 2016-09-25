@@ -29,7 +29,7 @@ void merge_pixels(std::vector<PIXEL_RGBA>& src, size_t w, size_t h,
 std::vector<sf::IntRect> calcFrameOffsets(aseprite::Sprite s) {
   std::vector<sf::IntRect> offsets;
   auto frame_count = s.frames.size();
-  size_t nearest_fit = static_cast<size_t>(sqrt(static_cast<float>(frame_count)) + .5f);
+  size_t nearest_fit = static_cast<size_t>(ceil(sqrt(static_cast<float>(frame_count))));
   size_t x_off = 0;
   size_t y_off = 0;
   for ( size_t i = 0; i < s.frames.size(); ++i ) {
@@ -47,7 +47,7 @@ std::vector<sf::IntRect> calcFrameOffsets(aseprite::Sprite s) {
 sf::Image convertToSFML(aseprite::Sprite s) {
   sf::Image image;
   auto frame_count = s.frames.size();
-  size_t nearest_fit = static_cast<size_t>(sqrt(static_cast<float>(frame_count)) + .5f);
+  size_t nearest_fit = static_cast<size_t>(ceil(sqrt(static_cast<float>(frame_count))));
 
   std::vector<PIXEL_RGBA> pixels;
   size_t width = nearest_fit * s.w;
