@@ -8,6 +8,7 @@
 
 #include <vector>
 #include <cassert>
+#include <cmath>
 
 using aseprite::Sprite;
 using aseprite::PIXEL_RGBA;
